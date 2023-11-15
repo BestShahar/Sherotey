@@ -7,7 +7,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             HighScoresContext context = new HighScoresContext();
-\|
+
             Player p = new Player() { Name = "Shahar", BirthYear=2007 };
             p.PlayerHighScores.Add( new PlayerHighScore(){GameId=1, HighScore=1000});
             try
