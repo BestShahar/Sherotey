@@ -7,10 +7,20 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             HighScoresContext context = new HighScoresContext();
-            foreach(Game g in context.AllGams())
+\|
+            Player p = new Player() { Name = "Shahar", BirthYear=2007 };
+            p.PlayerHighScores.Add( new PlayerHighScore(){GameId=1, HighScore=1000});
+            try
             {
-                Console.WriteLine( $"{g.Name} {g.MinimumAge}");
+                context.AddPlayer(p);
+
+                List<PlayerHighScore> highScores = context.PlayerHighScores.OrderBy(x => x.HighScore).ToList();
+                foreach(var g in highScores)
+                {
+                    Console.WriteLine($"{g.HighScore} {g.Game}");
+                }
             }
+           catch(Exception ex) { Console.WriteLine((ex.Message)); }
         }
     }
 }

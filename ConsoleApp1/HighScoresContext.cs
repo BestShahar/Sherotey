@@ -14,5 +14,11 @@ namespace ConsoleApp1.Models
             return this.Games.ToList();
 
         }
+
+        public void AddPlayer(Player p)
+        { 
+            this.Players.Add(p);
+            this.SaveChanges();
+        }
     }
 }
